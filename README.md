@@ -27,7 +27,7 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
 
    ```
    git clone <URL_DO_REPOSITORIO>
-   cd sistema_financeiro
+   cd sistema-financeiro
    ```
 
 2. **Crie um ambiente virtual (opcional, mas recomendado):**
@@ -76,12 +76,9 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
 ## Diagrama Entidade-Relacionamento (DER)
 
 ![Diagrama ER](docs/DER.jpeg)
+Tabelas utilizadas
 ![Diagrama ER](docs/DER_completo.jpeg)
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
-
+Diagrama completo
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
