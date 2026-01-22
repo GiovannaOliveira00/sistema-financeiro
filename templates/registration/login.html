@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-header bg-white text-center py-3">
+                <h4 class="mb-0 text-primary">Acessar Sistema</h4>
+            </div>
+            <div class="card-body p-4">
+                
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <div>
+                            {% for error in form.non_field_errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Usuário</label>
+                        <input type="text" name="username" class="form-control form-control-lg {% if form.username.errors %}is-invalid{% endif %}" required autofocus>
+                        {% if form.username.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.username.errors.0 }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Senha</label>
+                        <input type="password" name="password" class="form-control form-control-lg {% if form.password.errors %}is-invalid{% endif %}" required>
+                        {% if form.password.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.password.errors.0 }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold">Entrar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center bg-light py-3">
+                <p class="mb-0 text-muted">Ainda não tem conta? <a href="{% url 'register' %}" class="fw-bold text-decoration-none">Crie agora</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white py-3">
+                <h5 class="mb-0"><i class="fas fa-pen me-2"></i>Registrar Movimentação</h5>
+            </div>
+            <div class="card-body p-4">
+                
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <div>
+                            {% for error in form.non_field_errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <form method="post" novalidate> 
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Descrição</label>
+                        {{ form.descricao }}
+                        {% if form.descricao.errors %}
+                            <div class="alert alert-danger py-2 mt-1 mb-0 small">
+                                <i class="fas fa-exclamation-circle me-1"></i> {{ form.descricao.errors.0 }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Valor (R$)</label>
+                            {{ form.valor }}
+                            {% if form.valor.errors %}
+                                <div class="alert alert-danger py-2 mt-1 mb-0 small">
+                                    <i class="fas fa-exclamation-circle me-1"></i> {{ form.valor.errors.0 }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Data</label>
+                            {{ form.data }}
+                            {% if form.data.errors %}
+                                <div class="alert alert-danger py-2 mt-1 mb-0 small">
+                                    <i class="fas fa-exclamation-circle me-1"></i> {{ form.data.errors.0 }}
+                                </div>
+                            {% else %}
+                                <div class="form-text text-muted small">
+                                    Data máxima: Hoje
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Tipo de Movimentação</label>
+                        {{ form.tipo }}
+                        {% if form.tipo.errors %}
+                            <div class="alert alert-danger py-2 mt-1 mb-0 small">
+                                <i class="fas fa-exclamation-circle me-1"></i> {{ form.tipo.errors.0 }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">Salvar Lançamento</button>
+                        <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

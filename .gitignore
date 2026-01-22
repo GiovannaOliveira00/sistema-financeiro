@@ -1,0 +1,71 @@
+# ==========================
+# AMBIENTE VIRTUAL
+# ==========================
+venv/
+ENV/
+env/
+*.pyvenv.cfg
+
+# ==========================
+# BANCO DE DADOS
+# ==========================
+db.sqlite3
+
+# ==========================
+# MIGRAÇÕES (exceto __init__.py)
+# ==========================
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# ==========================
+# CACHE PYTHON
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================
+# LOGS
+# ==========================
+*.log
+
+# ==========================
+# ARQUIVOS TEMPORÁRIOS / SISTEMA
+# ==========================
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# ==========================
+# CONFIGURAÇÕES EDITOR
+# ==========================
+.vscode/
+
+# ==========================
+# UPLOADS / MÍDIA
+# ==========================
+media/
+uploads/
+
+# ==========================
+# DOCUMENTAÇÃO / IMAGENS
+# ==========================
+
+
+# ==========================
+# TESTES / COBERTURA
+# ==========================
+htmlcov/
+.coverage
+.tox/
+.cache/
+.pytest_cache/
+
+# ==========================
+# DISTRIBUIÇÃO DE PACOTES
+# ==========================
+*.egg-info/
+dist/
+build/
